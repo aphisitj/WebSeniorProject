@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>Assignment 1</title>
+    <!-- สามารถไปดาวน์โหลดมาไว้ใน server ได้เลย -->
+    <link rel="stylesheet" href="http://www.jacklmoore.com/colorbox/example1/colorbox.css" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://www.jacklmoore.com/colorbox/jquery.colorbox.js"></script>
+</head>
+
+<body>
+    <div id="para1">
+        <h1>นาย อภิสิทธิ์  จันทร์เขียว</h1>
+        <h3>56130500081</h3>
+        <div class="container" id="progreesbarw">
+            <h2 id="Close">กรุณารอสักครู่...</h2>
+            <div class="progress">
+                <div class="progress-bar" aria-valuemax="100" style="width:0%" id="myBar">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+function openColorBox() {
+
+    // $.colorbox({iframe:true, width:"800px", height:"500px", href: "https://www.ptacproject.com"});
+    // popUp = window.open('', 'Today Date', 'width=400px,height=400px');
+    var left = (window.screen.width / 2) - ((400 / 2) + 10);
+    var top = (window.screen.height / 2) - ((400 / 2) + 50);
+    popUp = window.open("", "ดีจ้าาาาา", 'width=400px,height=400px,left=' + left + ',top=' + top);
+    today = new Date();
+    var thday = new Array("อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัส", "ศุกร์", "เสาร์");
+    var thmonth = new Array("มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
+
+    popUp.document.write("วัน " + thday[today.getDay()] + " ที่ " + today.getDate() + " " +
+        thmonth[today.getMonth()] + " " + (today.getYear() + 2443));
+
+}
+
+function countDown() {
+    var elem = document.getElementById("myBar");
+    var width = 8.3;
+    var id = setInterval(frame, 10);
+
+    function frame() {
+        if (width >= 100) {
+            clearInterval(id);
+        }
+        if (seconds === 0) {
+            elem.style.width = 100 + '%';
+        } else {
+            width++;
+            elem.style.width = width + '%';
+        }
+    }
+    seconds--
+    // $("#seconds").text(seconds);
+    if (seconds === 0) {
+        openColorBox();
+        clearInterval(i);
+        elem.style.width = 100 + '%';
+        if (document.getElementById('seconds').style.display == 'none') {
+            document.getElementById('seconds').style.display = ''
+        } else {
+            document.getElementById('seconds').style.display = 'none'
+        }
+    }
+
+}
+
+var seconds = 15,
+    i = setInterval(countDown, 1000);
+addEventListener("unload", function() {
+    popUp.close();
+
+});
+</script>
+<style>
+#para1 {
+    margin: 10% 30% 30% 30%;
+    width: 40%;
+    height: 50%;
+    border: 3px ridge;
+    border-radius: 25px;
+    padding: 10px;
+    display: block;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+}
+
+#mm {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#progreesbarw {
+    text-align: center;
+    width: 80%;
+}
+</style>
+
+</html>

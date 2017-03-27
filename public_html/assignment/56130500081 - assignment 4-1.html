@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment 4.1</title>
+</head>
+<body id="para1">
+<h3>นาย  อภิสิทธิ์ จันทร์เขียว  56130500081</h3>
+    <div id="lastTime"></div>
+    <div id="today"></div>
+    <script>
+    if (typeof(Storage) !== "undefined") {
+        document.getElementById("lastTime").innerHTML = "Lasttime visit : " + localStorage.getItem("lastTime");
+
+        localStorage.setItem("lastTime", new Date());
+
+
+        document.getElementById("today").innerHTML = "Now : " + localStorage.getItem("lastTime");
+    } else {
+        document.getElementById("today").innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
+    </script>
+</body>
+<style>
+
+#para1 {
+    margin: 10% 30% 30% 30%;
+    width: 40%;
+    height: 50%;
+    border: 3px ridge;
+    border-radius: 25px;
+    padding: 10px;
+    display: block;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+}
+</style>
+</html>

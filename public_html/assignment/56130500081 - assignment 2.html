@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Assignment 2</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container" id="para1">
+        <form onsubmit="return submitForm()">
+            <div>
+                <h1>Assignment 2</h1>
+                <h4>56130500081 อภิสิทธิ์  จันทร์เขียว</h4> Email address:
+                <input type="text" class="form-control" id='email'> Total Price:
+                <input type="number" class="form-control" id='price'>
+                <br>
+                <br>
+                <input type="radio" name="select" class="radio" id='pay1'> credit card :
+                <input type="text" class="form-control" id='price1' disabled>
+                <input type="radio" name="select" class="radio" id='pay2'> paypal :
+                <input type="text" class="form-control" id='price2' disabled>
+                <input type="radio" name="select" class="radio" id='pay3'> points (<span id='demo'></span>)
+                <br>
+                <h2 id='result'></h2>
+                <button type='submit' class="btn btn-success" style="float: right;">Submit</button>
+                <br>
+        </form>
+        </div>
+</body>
+<script>
+var randompoinr = Math.floor(Math.random() * 3000) + 1;
+document.getElementById("demo").innerHTML = randompoinr;
+
+function validateEmail(email) {
+    var re = /^\S+@\S+\.\S+$/;
+    return re.test(email);
+}
+
+$(document).ready(function() {
+    $('#pay1').click(function() {
+        document.getElementById("price1").disabled = false;
+        document.getElementById("price2").disabled = true;
+
+    });
+    $('#pay2').click(function() {
+        document.getElementById("price1").disabled = true;
+        document.getElementById("price2").disabled = false;
+
+    });
+    $('#pay3').click(function() {
+        var pricetotal = document.getElementById("price").value;
+        if (pricetotal > randompoinr) {
+            $("#result").text("You has Point : " + randompoinr);
+            $("#result").css("color", "red");
+        }
+        document.getElementById("price1").disabled = true;
+        document.getElementById("price2").disabled = true;
+
+    });
+});
+
+function submitForm() {
+    document.getElementById("result").innerHTML = "";
+    var email = document.getElementById("email").value;
+    var radiocheck = "";
+    var pricepay = document.getElementById("price").value;
+    var resultmsg = "";
+    var radios = document.getElementsByName('select');
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if (radios[i].checked) {
+            radiocheck = radios[i].value;
+            break;
+        }
+    }
+
+    if (radiocheck == "") {
+        document.getElementById("result").innerHTML = " Please insert data ";
+        document.getElementById("result").style.color = "red";
+
+        resultmsg = "eee"
+    }
+    if (pricepay == 0) {
+        document.getElementById("result").innerHTML = " Total Price is 0 ";
+        document.getElementById("result").style.color = "red";
+
+        resultmsg = "eee"
+    }
+    if (validateEmail(email)) {
+        if (pricepay > 0) {
+            if (resultmsg == "") {
+                document.getElementById("result").innerHTML = " Success ";
+                document.getElementById("result").style.color = "green";
+
+            } else {
+                document.getElementById("result").innerHTML = " Please insert data ";
+                document.getElementById("result").style.color = "red";
+
+                resultmsg = "eee"
+            }
+
+        }
+
+    } else {
+        document.getElementById("result").innerHTML = " Email is invalid ";
+        document.getElementById("result").style.color = "red";
+
+        resultmsg = "eee"
+    }
+    return false;
+}
+</script>
+<style>
+#from1 {
+    text-align: left;
+    width: 40%;
+}
+
+#center {
+    align-items: center;
+}
+
+#para1 {
+    margin: 3% 30% 0% 30%;
+    padding: 5%;
+    width: 40%;
+    height: 50%;
+    border: 3px ridge;
+    border-radius: 25px;
+    padding: 10px;
+    display: block;
+    text-align: left;
+    font-family: "Times New Roman", Times, serif;
+}
+</style>
+
+</html>

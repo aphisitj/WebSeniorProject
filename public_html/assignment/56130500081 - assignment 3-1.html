@@ -1,0 +1,115 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <title>Assignment 3.1</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container" id="para1">
+    <h3>นาย  อภิสิทธิ์ จันทร์เขียว  56130500081</h3>
+        <form onsubmit="return submitForm()">
+           <ul id="errorMessages"></ul> 
+            <div>
+                Please insert "Hello World" :
+                <input type="text" class="form-control" id='word1'>
+            </div>
+            <div>
+                Please insert "Aphisit Jankiaw" :
+                <input type="text" class="form-control" id='word2'>
+            </div>
+            <div class="buttons">
+                <button type='submit' class="btn btn-success" id="right">Submit</button>
+            </div>
+            <ul id="Messages"></ul>
+        </form>​
+    </div>
+
+
+
+</body>
+<script>
+function submitForm() {
+
+    var word1 = document.getElementById("word1").value;
+
+    var word2 = document.getElementById("word2").value;
+
+
+
+    if (word1 != "Hello World") {
+        document.getElementById("errorMessages").innerHTML = " Please insert data ";
+        document.getElementById("Messages").innerHTML = "";
+        document.getElementById("errorMessages").style.color = "red";
+        document.getElementById("word1").focus();
+        document.getElementById("word1").style.border = "2px solid red";
+        document.getElementById("word1").style.backgroundColor = "pink";
+        if (word2 != "Aphisit Jankiaw") {
+            document.getElementById("errorMessages").innerHTML = " Please insert Hello World and  Aphisit  Jankiaw";
+            document.getElementById("Messages").innerHTML = "";
+            document.getElementById("word2").style.border = "2px solid red";
+            document.getElementById("word2").style.backgroundColor = "pink";
+
+
+        }
+
+    } else {
+
+        if (word2 != "Aphisit Jankiaw") {
+            document.getElementById("errorMessages").innerHTML = " Please insert Aphisit  Jankiaw";
+            document.getElementById("Messages").innerHTML = "";
+            document.getElementById("errorMessages").style.color = "red";
+            document.getElementById("word2").focus();
+            document.getElementById("word2").style.border = "2px solid red";
+            document.getElementById("word2").style.backgroundColor = "pink";
+        } else {
+            document.getElementById("errorMessages").innerHTML = "";
+            document.getElementById("Messages").innerHTML = "Success !!";
+            document.getElementById("Messages").style.color = "green";
+            document.getElementById("word1").style.border = "";
+            document.getElementById("word1").style.backgroundColor = "";
+            document.getElementById("word2").style.border = "";
+            document.getElementById("word2").style.backgroundColor = "";
+        }
+
+    }
+    return false;
+}
+</script>
+<style>
+#from1 {
+    text-align: left;
+    width: 40%;
+}
+
+#right {
+    float: right;
+    margin: 5%;
+}
+#errorMessages{
+	text-align: center;
+}
+#para1 {
+    
+    margin: 3% 30% 0% 30%;
+    padding: 5%;
+    width: 40%;
+    height: 50%;
+    border: 3px ridge;
+    border-radius: 25px;
+    padding: 10px;
+    display: block;
+    text-align: left;
+    font-family: "Times New Roman", Times, serif;
+}
+</style>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Assignment 3.2</title>
+</head>
+
+<body id="para1">
+    <div class="container">
+    <h3>นาย  อภิสิทธิ์ จันทร์เขียว  56130500081</h3>
+        <h1 id="head1">Vacation Time</h1>
+        <img id="img1" src="img/vacation.jpg" alt="Test Image" />
+    </div>
+</body>
+<script>
+var today = new Date();
+var todate = today.getDay() ;
+if(todate==6){
+document.getElementById("head1").innerHTML = "Vacation Time";
+document.getElementById('img1').src = 'img/vacation.jpg'
+}else if(todate==0){
+document.getElementById("head1").innerHTML = "Vacation Time";
+document.getElementById('img1').src = 'img/vacation.jpg'
+}else{
+document.getElementById("head1").innerHTML = "Work Time";
+document.getElementById('img1').src = 'img/work.jpg'	
+}
+
+</script>
+<style>
+#img1 {
+    width:40%;
+    height: 30%;
+}
+
+#para1 {
+    margin: 10% 30% 30% 30%;
+    width: 40%;
+    height: 50%;
+    border: 3px ridge;
+    border-radius: 25px;
+    padding: 10px;
+    display: block;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+}
+</style>
+
+</html>

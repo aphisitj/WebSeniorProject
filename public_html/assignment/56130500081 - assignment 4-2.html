@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Assignment 4.2</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container" id="para1">
+        <h3>นาย  อภิสิทธิ์ จันทร์เขียว  56130500081</h3>
+        <input type="text" class="form-control" id='user' placeholder="Username">
+        <br/>
+        <input type="password" class="form-control" id='pass' placeholder="Password">
+        <br/>
+        <input type="checkbox" name="checkbox1" id="myCheck"> Remember account
+        <br/>
+        <button type='submit' class="btn btn-success" style="float: right;" onclick="remember()">Submit</button>
+    </div>
+    <script>
+    document.getElementById("user").value = localStorage.getItem("userset");
+    function remember() {
+        if (document.getElementById("myCheck").checked == true) {
+            if (typeof(Storage) !== "undefined") {
+
+                localStorage.setItem("userset", document.getElementById("user").value);
+
+            } else {
+                document.getElementById("today").innerHTML = "Sorry, your browser does not support Web Storage...";
+                localStorage.setItem("userset", "");
+            }
+        } else {
+            document.getElementById("myCheck").value = "";
+            localStorage.setItem("userset", "");
+        }
+    }
+    </script>
+</body>
+<style>
+#para1 {
+    margin: 10% 30% 30% 30%;
+    width: 40%;
+    height: 50%;
+    border: 3px ridge;
+    border-radius: 25px;
+    padding: 10px;
+    display: block;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+}
+</style>
+
+</html>
